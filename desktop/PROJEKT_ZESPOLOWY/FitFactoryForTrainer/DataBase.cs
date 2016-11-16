@@ -49,7 +49,7 @@ namespace FitFactoryForTrainer
         {
             
             DataTable result = new DataTable();
-            result.Columns.Add(new DataColumn("wynik"));
+          //  result.Columns.Add(new DataColumn("wynik"));
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -77,7 +77,7 @@ namespace FitFactoryForTrainer
         {
 
             DataTable result = new DataTable();
-            result.Columns.Add(new DataColumn("wynik"));
+           // result.Columns.Add(new DataColumn("wynik"));
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -109,7 +109,7 @@ namespace FitFactoryForTrainer
         public DataTable showInvites()
         {
             DataTable result = new DataTable();
-            result.Columns.Add(new DataColumn("wynik"));
+           // result.Columns.Add(new DataColumn("wynik"));
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -132,7 +132,7 @@ namespace FitFactoryForTrainer
         public DataTable showUsers()
         {
             DataTable result = new DataTable();
-            result.Columns.Add(new DataColumn("wynik"));
+           // result.Columns.Add(new DataColumn("wynik"));
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -159,6 +159,82 @@ namespace FitFactoryForTrainer
             DataRow r = d.Rows[0];
             String tempId = r["id"].ToString();
             idLoggedCoach = int.Parse(tempId);
+        }
+
+        public void confirmInvite(string id)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "potwierdzZaproszenie";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = connection;
+                cmd.Parameters.AddWithValue("@p_id_zapr", id);
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Nie udało się potwierdzić zaproszenia. " + ex);
+            }
+        }
+
+        public DataTable getCoachSpecs()
+        {
+            DataTable result = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "wypiszListeSpecjalizacjiTrenera";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = connection;
+                cmd.Parameters.AddWithValue("@p_id_trenera", idLoggedCoach);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(result);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nie udało się załadować specjalizacji. " + ex);
+                return null;
+            }
+        }
+
+        public void addSpec(string id, string dataOd)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "dodajSpecjalizacjeTrenera";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = connection;
+                cmd.Parameters.AddWithValue("@p_id_trenera", idLoggedCoach);
+                cmd.Parameters.AddWithValue("@p_id_spec", id);
+                cmd.Parameters.AddWithValue("@p_od", dataOd);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nie udało się dodać specjalizacji " + ex);
+            }
+        }
+
+        public void removeSpec(string id)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "usunSpecjalizacjeTrenera";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = connection;
+                cmd.Parameters.AddWithValue("@p_id_trenera", idLoggedCoach);
+                cmd.Parameters.AddWithValue("@p_id_spec", id);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nie udało się usunąć specjalizacji " + ex);
+            }
         }
     }
 }

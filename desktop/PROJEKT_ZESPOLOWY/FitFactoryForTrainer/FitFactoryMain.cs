@@ -23,16 +23,23 @@ namespace FitFactoryForTrainer
         {
             Invites inv = new Invites();
             inv.ShowDialog();
+            loadGrid();
         }
 
         private void FitFactoryMain_Load(object sender, EventArgs e)
         {
-            usersView.DataSource = db.showUsers();
+            loadGrid();
         }
 
         public void loadGrid()
         {
             usersView.DataSource = db.showUsers();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            Settings s = new Settings();
+            s.Show();
         }
     }
 }

@@ -19,6 +19,7 @@ namespace FitFactoryForTrainer
         {
             InitializeComponent();
             wczytajLB();
+            cbPlec.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
   
@@ -31,7 +32,7 @@ namespace FitFactoryForTrainer
           //  cbSpecjalizacja.DisplayMember = "nazwa";
           //  cbSpecjalizacja.ValueMember = "id";
           //  cbSpecjalizacja.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbPlec.DropDownStyle = ComboBoxStyle.DropDownList;
+     
             //foreach (DataRow dr in d.Rows)
             //{
             //    cbSpecjalizacja.Items.Add(dr["nazwa"].ToString());
@@ -117,7 +118,7 @@ namespace FitFactoryForTrainer
 
                         this.Close();
                     }
-                    else
+                    else if (token=="02")
                     {
                         MessageBox.Show("Podany login jest już zajęty.");
                     }

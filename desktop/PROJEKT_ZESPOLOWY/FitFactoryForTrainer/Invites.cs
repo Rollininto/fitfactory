@@ -17,17 +17,29 @@ namespace FitFactoryForTrainer
         {
             InitializeComponent();
             db = DataBase.getInstance();
-            inviteView.DataSource = db.showInvites();        
+            gridRefresh();       
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-
+            if(inviteView.SelectedRows.Count > 0)
+            {
+                int rowNumber = int.Parse(inviteView.SelectedCells[0].RowIndex.ToString());
+                string inviteId = inviteView[0, rowNumber].Value.ToString();
+                db.confirmInvite(inviteId);
+                gridRefresh();
+            }
         }
 
         private void btnReject_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void gridRefresh()
+        {
+            inviteView.DataSource = db.showInvites();
+        }
+
     }
 }

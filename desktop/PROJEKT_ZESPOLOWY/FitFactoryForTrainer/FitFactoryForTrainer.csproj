@@ -73,6 +73,18 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsSpecialization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsSpecialization.Designer.cs">
+      <DependentUpon>SettingsSpecialization.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FitFactoryMain.resx">
       <DependentUpon>FitFactoryMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +105,12 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsSpecialization.resx">
+      <DependentUpon>SettingsSpecialization.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

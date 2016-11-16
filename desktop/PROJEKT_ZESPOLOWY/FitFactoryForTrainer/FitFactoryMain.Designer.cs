@@ -41,7 +41,6 @@
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnInvites = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colImie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colImie2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +49,7 @@
             this.colPlec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOpis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersView)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -91,7 +91,6 @@
             this.usersView.AllowUserToDeleteRows = false;
             this.usersView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usersView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colId,
             this.colLogin,
             this.colImie,
             this.colImie2,
@@ -99,11 +98,14 @@
             this.colDataUr,
             this.colPlec,
             this.colCel,
-            this.colMail});
+            this.colMail,
+            this.colOpis});
             this.usersView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.usersView.Location = new System.Drawing.Point(3, 35);
+            this.usersView.MultiSelect = false;
             this.usersView.Name = "usersView";
             this.usersView.ReadOnly = true;
+            this.usersView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.usersView.Size = new System.Drawing.Size(945, 574);
             this.usersView.TabIndex = 0;
             // 
@@ -221,13 +223,7 @@
             this.btnSettings.TabIndex = 6;
             this.btnSettings.Text = "Ustawienia";
             this.btnSettings.UseVisualStyleBackColor = true;
-            // 
-            // colId
-            // 
-            this.colId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colId.HeaderText = "Id";
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // colLogin
             // 
@@ -280,6 +276,7 @@
             // colCel
             // 
             this.colCel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colCel.DataPropertyName = "nazwa_celu";
             this.colCel.HeaderText = "Cel";
             this.colCel.Name = "colCel";
             this.colCel.ReadOnly = true;
@@ -290,6 +287,13 @@
             this.colMail.HeaderText = "Mail";
             this.colMail.Name = "colMail";
             this.colMail.ReadOnly = true;
+            // 
+            // colOpis
+            // 
+            this.colOpis.DataPropertyName = "opis";
+            this.colOpis.HeaderText = "Opis";
+            this.colOpis.Name = "colOpis";
+            this.colOpis.ReadOnly = true;
             // 
             // FitFactoryMain
             // 
@@ -322,7 +326,6 @@
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Button btnInvites;
         private System.Windows.Forms.Button btnSettings;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLogin;
         private System.Windows.Forms.DataGridViewTextBoxColumn colImie;
         private System.Windows.Forms.DataGridViewTextBoxColumn colImie2;
@@ -331,5 +334,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPlec;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCel;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOpis;
     }
 }

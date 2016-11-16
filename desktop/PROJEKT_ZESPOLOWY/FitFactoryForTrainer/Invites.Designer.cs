@@ -34,6 +34,11 @@
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnReject = new System.Windows.Forms.Button();
             this.inviteView = new System.Windows.Forms.DataGridView();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colImie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOpis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inviteView)).BeginInit();
@@ -98,12 +103,60 @@
             this.inviteView.AllowUserToAddRows = false;
             this.inviteView.AllowUserToDeleteRows = false;
             this.inviteView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.inviteView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colId,
+            this.colLogin,
+            this.colImie,
+            this.colNazwa,
+            this.colOpis});
             this.inviteView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inviteView.Location = new System.Drawing.Point(3, 3);
+            this.inviteView.MultiSelect = false;
             this.inviteView.Name = "inviteView";
             this.inviteView.ReadOnly = true;
+            this.inviteView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.inviteView.Size = new System.Drawing.Size(628, 469);
             this.inviteView.TabIndex = 1;
+            // 
+            // colId
+            // 
+            this.colId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colId.DataPropertyName = "id_zaprosz";
+            this.colId.HeaderText = "Id zaproszenia";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            // 
+            // colLogin
+            // 
+            this.colLogin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colLogin.DataPropertyName = "login_uz";
+            this.colLogin.HeaderText = "Login";
+            this.colLogin.Name = "colLogin";
+            this.colLogin.ReadOnly = true;
+            // 
+            // colImie
+            // 
+            this.colImie.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colImie.DataPropertyName = "imie_uz";
+            this.colImie.HeaderText = "Imie";
+            this.colImie.Name = "colImie";
+            this.colImie.ReadOnly = true;
+            // 
+            // colNazwa
+            // 
+            this.colNazwa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNazwa.DataPropertyName = "nazwa_celu";
+            this.colNazwa.HeaderText = "Nazwa celu";
+            this.colNazwa.Name = "colNazwa";
+            this.colNazwa.ReadOnly = true;
+            // 
+            // colOpis
+            // 
+            this.colOpis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colOpis.DataPropertyName = "opis";
+            this.colOpis.HeaderText = "Opis";
+            this.colOpis.Name = "colOpis";
+            this.colOpis.ReadOnly = true;
             // 
             // Invites
             // 
@@ -129,5 +182,10 @@
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.Button btnReject;
         private System.Windows.Forms.DataGridView inviteView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLogin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colImie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNazwa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOpis;
     }
 }
