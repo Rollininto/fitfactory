@@ -33,6 +33,7 @@ namespace FitFactoryForTrainer
 
                 if (r["Column1"].ToString() == "True")
                 {
+                    db.getCoachId(login);
                     FitFactoryMain f = new FitFactoryMain();
                     this.Hide();
                     f.ShowDialog();

@@ -12,6 +12,7 @@ namespace FitFactoryForTrainer
     class DataBase
     {
         private static DataBase instance = new DataBase();
+        private int idLoggedCoach;
         private SqlConnection connection;
         private string connectionString =
                "Server = tcp:fitfactory.database.windows.net,1433; Initial Catalog = fitfactory_database; Persist Security Info = False; User ID = fitfactoryadmin; Password = &(@#(*$yh383; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;";
@@ -58,7 +59,7 @@ namespace FitFactoryForTrainer
                 cmd.Parameters.AddWithValue("@p_login", login);
                 cmd.Parameters.AddWithValue("@p_haslo", haslo);
                 cmd.Parameters.AddWithValue("@p_typ", "T");
-                cmd.ExecuteNonQuery();
+                //cmd.ExecuteNonQuery();
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(result);
@@ -103,6 +104,61 @@ namespace FitFactoryForTrainer
                 MessageBox.Show("Nie udało się przeprowadzić operacji na bazie. " + ex.ToString());
                 return null;
             }
+        }
+
+        public DataTable showInvites()
+        {
+            DataTable result = new DataTable();
+            result.Columns.Add(new DataColumn("wynik"));
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "wypiszZaproszenia";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = connection;
+                cmd.Parameters.AddWithValue("@p_id_trenera", idLoggedCoach);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(result);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nie udało się przeprowadzić operacji na bazie. " + ex.ToString());
+                return null;
+            }
+        }
+
+        public DataTable showUsers()
+        {
+            DataTable result = new DataTable();
+            result.Columns.Add(new DataColumn("wynik"));
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "wypiszPrzypisaneUz";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = connection;
+                cmd.Parameters.AddWithValue("@p_id_trenera", idLoggedCoach);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(result);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nie udało się przeprowadzić operacji na bazie. " + ex.ToString());
+                return null;
+            }
+        }
+
+        public void getCoachId(string login)
+        {
+            string query = "select id from uzytkownicy where login = '" + login + "'";
+            DataTable d = ExecuteStoredProcedure(query);
+            DataRow r = d.Rows[0];
+            String tempId = r["id"].ToString();
+            idLoggedCoach = int.Parse(tempId);
         }
     }
 }

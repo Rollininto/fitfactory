@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbMail = new System.Windows.Forms.TextBox();
@@ -58,7 +59,6 @@
             this.label2.Size = new System.Drawing.Size(36, 16);
             this.label2.TabIndex = 8;
             this.label2.Text = "Mail:";
-           
             // 
             // label1
             // 
@@ -243,6 +243,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbMail);
             this.Controls.Add(this.tbLogin);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rejestracja";

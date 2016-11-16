@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,50 +61,71 @@ namespace FitFactoryForTrainer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(validate())
+            if (validate())
             {
-                MD5 md = MD5.Create();
-                String login ="" + tbLogin.Text + "";
-                String imie1 = "" + tbImie.Text + "";
-                String imie2 = "" + tbImie2.Text + "";
-                String mail = "" + tbMail.Text + "";
-                String nazwisko = "" + tbNazwisko.Text + "";
-                String haslo = "" + GetMd5Hash(md, tbHaslo1.Text) + "";
-
-
-                String plec;
-                if(cbPlec.Text=="Mężczyzna")
+                try
                 {
-                    plec = "M";
+                    MD5 md = MD5.Create();
+                    String login = "" + tbLogin.Text + "";
+                    String imie1 = "" + tbImie.Text + "";
+                    String imie2 = "" + tbImie2.Text + "";
+                    String mail = "" + tbMail.Text + "";
+                    String nazwisko = "" + tbNazwisko.Text + "";
+                    String haslo = "" + GetMd5Hash(md, tbHaslo1.Text) + "";
+
+
+                    String plec;
+                    if (cbPlec.Text == "Mężczyzna")
+                    {
+                        plec = "M";
+                    }
+                    else
+                    {
+                        plec = "K";
+                    }
+
+                    string rok = dataUr.Value.Year.ToString();
+                    string miesiac = dataUr.Value.Month.ToString();
+                    string dzien = dataUr.Value.Day.ToString();
+                    if (miesiac.Length == 1)
+                    {
+                        miesiac = "0";
+                        miesiac += dataUr.Value.Month.ToString();
+                    }
+                    if (dzien.Length == 1)
+                    {
+                        dzien = "0";
+                        dzien += dataUr.Value.Day.ToString();
+                    }
+
+                    String data_ur = "" + dzien + "/" + miesiac + "/" + rok + "";
+                    DataTable tokenHanlder = new DataTable();
+                    tokenHanlder = db.InsertIntoDb(login, mail, imie1, imie2, nazwisko, plec, data_ur, haslo, "T");
+
+                    DataRow r = tokenHanlder.Rows[0];
+
+                    String token = r["Column1"].ToString();
+
+                    if (token != "02")
+                    {
+
+                        String senderReq = "http://fitfactory.azurewebsites.net/sendmail.php?" + "email=" + mail + "&token=" + token + "&name=" + imie1;
+
+                        WebRequest request = WebRequest.Create(senderReq);
+
+                        MessageBox.Show("Operacja przeprowadzona pomyślnie, sprawdź adres email.");
+
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Podany login jest już zajęty.");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    plec = "K";
+                    MessageBox.Show("Nie udało się przeprowadzić operacji." + ex);
                 }
-
-                string rok = dataUr.Value.Year.ToString();
-                string miesiac = dataUr.Value.Month.ToString();
-                string dzien = dataUr.Value.Day.ToString();
-                if (miesiac.Length == 1)
-                {
-                    miesiac = "0";
-                    miesiac += dataUr.Value.Month.ToString();
-                }
-                if (dzien.Length == 1)
-                {
-                    dzien = "0";
-                    dzien += dataUr.Value.Day.ToString();
-                }
-
-                String data_ur = "" + dzien + "/" + miesiac + "/" + rok + "";
-                DataTable tokenHanlder = new DataTable();
-                tokenHanlder = db.InsertIntoDb(login, mail, imie1, imie2, nazwisko, plec, data_ur, haslo, "T");
-
-                DataRow r = tokenHanlder.Rows[0];
-
-                MessageBox.Show(r["Column1"].ToString());
-
-
             }
         }
 

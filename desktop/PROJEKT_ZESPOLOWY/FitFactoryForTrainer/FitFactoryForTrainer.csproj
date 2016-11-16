@@ -53,6 +53,12 @@
     <Compile Include="FitFactoryMain.Designer.cs">
       <DependentUpon>FitFactoryMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Invites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invites.Designer.cs">
+      <DependentUpon>Invites.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     </Compile>
     <EmbeddedResource Include="FitFactoryMain.resx">
       <DependentUpon>FitFactoryMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invites.resx">
+      <DependentUpon>Invites.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
