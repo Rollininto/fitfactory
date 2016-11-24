@@ -12,3 +12,17 @@ c:\users\lenovo\documents\visual studio 2015\Projects\FitFactoryForTrainer\FitFa
 C:\Users\Lenovo\Documents\Visual Studio 2015\Projects\FitFactoryForTrainer\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.Invites.resources
 C:\Users\Lenovo\Documents\Visual Studio 2015\Projects\FitFactoryForTrainer\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.Settings.resources
 C:\Users\Lenovo\Documents\Visual Studio 2015\Projects\FitFactoryForTrainer\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.SettingsSpecialization.resources
+D:\Projects\GitHUB\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\bin\Debug\FitFactoryForTrainer.exe.config
+D:\Projects\GitHUB\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.exe
+D:\Projects\GitHUB\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.pdb
+D:\Projects\GitHUB\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\bin\Debug\FitFactoryForTrainer.exe
+D:\Projects\GitHUB\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\bin\Debug\FitFactoryForTrainer.pdb
+D:\Projects\GitHUB\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.csprojResolveAssemblyReference.cache
+D:\Projects\GitHUB\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.FitFactoryMain.resources
+D:\Projects\GitHUB\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.Invites.resources
+D:\Projects\GitHUB\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.Login.resources
+D:\Projects\GitHUB\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.Properties.Resources.resources
+D:\Projects\GitHUB\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.Register.resources
+D:\Projects\GitHUB\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.Settings.resources
+D:\Projects\GitHUB\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.SettingsSpecialization.resources
+D:\Projects\GitHUB\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.csproj.GenerateResource.Cache
