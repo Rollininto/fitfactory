@@ -5,6 +5,7 @@ package com.jakomulski.fitfactory.models;
  */
 public class Goal {
     private int id;
+    private String name;
     private String description;
 
     public int getId() {
@@ -14,10 +15,13 @@ public class Goal {
     public String getDescription() {
         return description;
     }
-
-    public Goal(int id, String description) {
+    public String getName() {
+        return name;
+    }
+    public Goal(int id, String description, String name) {
 
         this.id = id;
+        this.name = name;
         this.description = description;
     }
 }

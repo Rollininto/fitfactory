@@ -13,6 +13,7 @@
         tools:context=".SelectionActivity">
 
     <TextView
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="cel"
@@ -22,6 +23,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
     <TextView
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="specjalizacja trenera"
@@ -31,6 +33,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
     <TextView
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="wybierz trenera"

@@ -5,10 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.jakomulski.fitfactory.dao.DAO;
 import com.squareup.timessquare.CalendarPickerView;
 
+import java.sql.SQLException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import static com.squareup.timessquare.CalendarPickerView.SelectionMode.MULTIPLE;
 import static com.squareup.timessquare.CalendarPickerView.SelectionMode.RANGE;
@@ -23,7 +28,7 @@ public class DatePickerActivity extends AppCompatActivity {
         Calendar nextYear = Calendar.getInstance();
         nextYear.add(Calendar.YEAR, 1);
 
-        CalendarPickerView calendar = (CalendarPickerView) findViewById(R.id.calendar_view);
+        final CalendarPickerView calendar = (CalendarPickerView) findViewById(R.id.calendar_view);
         Date today = new Date();
         calendar.init(today, nextYear.getTime())
                 .withSelectedDate(today)
@@ -33,6 +38,19 @@ public class DatePickerActivity extends AppCompatActivity {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                List<Date> dates =  calendar.getSelectedDates();
+                try {
+                    DAO dao = DAO.getInstance();
+                    for(Date date : dates) {
+                        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+                        String dateStr = formatter.format(date);
+
+                        dao.addTrainigDay(dateStr);
+                    }
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 finish();
             }
         });

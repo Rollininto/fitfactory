@@ -21,6 +21,12 @@ public class TrainerAdaper extends ArrayAdapter<Trainer> {
         return initView(position, convertView);
     }
 
+    @Override
+    public View getDropDownView(int position, View convertView,
+                                ViewGroup parent) {
+        return initView(position, convertView);
+    }
+
     private View initView(int position, View convertView){
         Trainer trainer = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
@@ -32,9 +38,10 @@ public class TrainerAdaper extends ArrayAdapter<Trainer> {
 
         // Lookup view for data population
         TextView name = (TextView) convertView.findViewById(R.id.name);
+        TextView login = (TextView) convertView.findViewById(R.id.login);
 
         name.setText(trainer.getName());
-
+        login.setText(trainer.getLogin());
         // Return the completed view to render on screen
         return convertView;
     }

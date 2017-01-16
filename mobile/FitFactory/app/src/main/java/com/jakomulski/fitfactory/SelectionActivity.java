@@ -2,8 +2,10 @@ package com.jakomulski.fitfactory;
 
 import java.util.Calendar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
 import com.jakomulski.fitfactory.dao.DAO;
+import com.jakomulski.fitfactory.models.Exercise;
 import com.jakomulski.fitfactory.models.Goal;
 import com.jakomulski.fitfactory.models.Specialization;
 import com.jakomulski.fitfactory.models.Trainer;
@@ -79,7 +82,7 @@ public class SelectionActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             TrainerAdaper adapter = (TrainerAdaper)adapterView.getAdapter();
-            sendInvitation(adapter, i);
+            showDialog(adapter, i);
             }
         });
 
@@ -114,6 +117,38 @@ public class SelectionActivity extends AppCompatActivity {
             e.printStackTrace();
             Helpers.createAlert(this, "Brak połączenia z internetem");
         }
+    }
+
+    private void showDialog(final TrainerAdaper adapter, final int i){
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+
+
+        //adb.setView(alertDialogView);
+
+
+        //adb.setTitle("Title of alert dialog");
+
+
+        adb.setIcon(android.R.drawable.ic_dialog_alert);
+
+
+        adb.setPositiveButton("zaproś", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                try {
+                    DAO dao = DAO.getInstance();
+                    sendInvitation(adapter, i);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } });
+
+
+        adb.setNegativeButton("anuluj", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
+
+            } });
+        adb.show();
     }
 
 

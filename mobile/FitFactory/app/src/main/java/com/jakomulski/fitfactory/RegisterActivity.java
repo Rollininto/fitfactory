@@ -18,10 +18,19 @@ import com.jakomulski.fitfactory.dao.DAO;
 import com.jakomulski.fitfactory.dao.DBAccessObject;
 import com.jakomulski.fitfactory.models.User;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
+import java.net.URLConnection;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -57,6 +66,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                     dao.addUser(user);
                     finish();
+
+
                 } catch (SQLException e) {
                     e.printStackTrace();
                     Helpers.createAlert(context, "Brak połączenia z internetem");
@@ -67,9 +78,8 @@ public class RegisterActivity extends AppCompatActivity {
         final DatePickerDialog dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                birthdate.setText(String.format("%s-%s-%s", year, month+1, day));
+                birthdate.setText(String.format("%s-%s-%s", year, month + 1, day));
                 Calendar calendar = new GregorianCalendar();
-
 
 
                 calendar.set(year, month, day);
@@ -81,7 +91,7 @@ public class RegisterActivity extends AppCompatActivity {
         birthdate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if(b) {
+                if (b) {
                     dialog.show();
                 }
             }
@@ -93,5 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+
     }
 }
+
