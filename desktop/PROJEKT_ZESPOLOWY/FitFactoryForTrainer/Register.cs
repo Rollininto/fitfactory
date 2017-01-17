@@ -113,8 +113,13 @@ namespace FitFactoryForTrainer
                         String senderReq = "http://fitfactory.azurewebsites.net/sendmail.php?" + "email=" + mail + "&token=" + token + "&name=" + imie1;
 
                         WebRequest request = WebRequest.Create(senderReq);
+<<<<<<< HEAD
                         WebResponse resp = request.GetResponse();
                         
+=======
+                        WebResponse resp =  request.GetResponse();
+
+>>>>>>> f2ed0f8a39dde8dd60b8ea0cce9cc3aaaa2cb25f
                         MessageBox.Show("Operacja przeprowadzona pomyślnie, sprawdź adres email.");
 
                         this.Close();
