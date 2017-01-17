@@ -14,7 +14,7 @@ namespace FitFactoryForTrainer
 {
     public partial class Register : Form
     {
-        DataBase db = DataBase.getInstance();
+        DataBase db = DataBase.GetInstance();
         public Register()
         {
             InitializeComponent();
@@ -107,13 +107,14 @@ namespace FitFactoryForTrainer
 
                     String token = r["Column1"].ToString();
 
-                    if (token != "02")
+                    if (token != "02" && token!= "03")
                     {
 
                         String senderReq = "http://fitfactory.azurewebsites.net/sendmail.php?" + "email=" + mail + "&token=" + token + "&name=" + imie1;
 
                         WebRequest request = WebRequest.Create(senderReq);
-
+                        WebResponse resp = request.GetResponse();
+                        
                         MessageBox.Show("Operacja przeprowadzona pomyślnie, sprawdź adres email.");
 
                         this.Close();
@@ -121,6 +122,10 @@ namespace FitFactoryForTrainer
                     else if (token=="02")
                     {
                         MessageBox.Show("Podany login jest już zajęty.");
+                    }
+                    else if(token=="03")
+                    {
+                        MessageBox.Show("Podany mail jest już zajęty.");
                     }
                 }
                 catch (Exception ex)

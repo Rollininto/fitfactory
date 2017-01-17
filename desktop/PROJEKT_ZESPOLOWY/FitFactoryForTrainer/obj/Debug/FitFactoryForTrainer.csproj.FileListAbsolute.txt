@@ -12,3 +12,10 @@ c:\users\lenovo\documents\visual studio 2015\Projects\FitFactoryForTrainer\FitFa
 C:\Users\Lenovo\Documents\Visual Studio 2015\Projects\FitFactoryForTrainer\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.Invites.resources
 C:\Users\Lenovo\Documents\Visual Studio 2015\Projects\FitFactoryForTrainer\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.Settings.resources
 C:\Users\Lenovo\Documents\Visual Studio 2015\Projects\FitFactoryForTrainer\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.SettingsSpecialization.resources
+C:\Users\Lenovo\Documents\Visual Studio 2015\Projects\FitFactoryForTrainer\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.WorkoutsWindow.resources
+C:\Users\Lenovo\Documents\Visual Studio 2015\Projects\FitFactoryForTrainer\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.EditWorkoutWindow.resources
+C:\Users\Lenovo\Documents\Visual Studio 2015\Projects\FitFactoryForTrainer\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.Messenger.resources
+C:\Users\Lenovo\Documents\Visual Studio 2015\Projects\FitFactoryForTrainer\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.History.resources
+C:\Users\Lenovo\Documents\Visual Studio 2015\Projects\PROJEKT_ZESPOLOWY\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\bin\Debug\FitFactoryForTrainer.exe.config
+C:\Users\Lenovo\Documents\Visual Studio 2015\Projects\PROJEKT_ZESPOLOWY\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.exe
+C:\Users\Lenovo\Documents\Visual Studio 2015\Projects\PROJEKT_ZESPOLOWY\fitfactory\desktop\PROJEKT_ZESPOLOWY\FitFactoryForTrainer\obj\Debug\FitFactoryForTrainer.pdb

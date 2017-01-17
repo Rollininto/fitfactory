@@ -13,7 +13,7 @@ namespace FitFactoryForTrainer
 {
     public partial class Login : Form
     {
-        private DataBase db = DataBase.getInstance();
+        private DataBase db = DataBase.GetInstance();
         public Login()
         {
             InitializeComponent();
@@ -28,12 +28,12 @@ namespace FitFactoryForTrainer
                 string password = "" + GetMd5Hash(md, tbPassword.Text) + "";
        
                 DataTable dt = new DataTable();
-                dt = db.checkLogin(login,  password);
+                dt = db.CheckLogin(login,  password);
                 DataRow r = dt.Rows[0];
 
-                if (r["Column1"].ToString() == "True")
+                if (int.Parse(r["Column1"].ToString()) != 0)
                 {
-                    db.getCoachId(login);
+                    db.GetCoachId(int.Parse(r["Column1"].ToString()));
                     FitFactoryMain f = new FitFactoryMain();
                     this.Hide();
                     f.ShowDialog();
