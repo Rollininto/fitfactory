@@ -16,7 +16,7 @@ namespace FitFactoryForTrainer
         public Invites()
         {
             InitializeComponent();
-            db = DataBase.getInstance();
+            db = DataBase.GetInstance();
             gridRefresh();       
         }
 
@@ -26,19 +26,25 @@ namespace FitFactoryForTrainer
             {
                 int rowNumber = int.Parse(inviteView.SelectedCells[0].RowIndex.ToString());
                 string inviteId = inviteView[0, rowNumber].Value.ToString();
-                db.confirmInvite(inviteId);
+                db.ConfirmInvite(inviteId);
                 gridRefresh();
             }
         }
 
         private void btnReject_Click(object sender, EventArgs e)
         {
-
+            if (inviteView.SelectedRows.Count > 0)
+            {
+                int rowNumber = int.Parse(inviteView.SelectedCells[0].RowIndex.ToString());
+                string inviteId = inviteView[0, rowNumber].Value.ToString();
+                db.DeclineInvite(inviteId);
+                gridRefresh();
+            }
         }
 
         private void gridRefresh()
         {
-            inviteView.DataSource = db.showInvites();
+            inviteView.DataSource = db.ShowInvites();
         }
 
     }

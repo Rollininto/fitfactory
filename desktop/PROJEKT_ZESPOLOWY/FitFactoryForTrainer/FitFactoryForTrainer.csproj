@@ -47,11 +47,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase.cs" />
+    <Compile Include="EditWorkoutWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditWorkoutWindow.Designer.cs">
+      <DependentUpon>EditWorkoutWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="FitFactoryMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FitFactoryMain.Designer.cs">
       <DependentUpon>FitFactoryMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="History.Designer.cs">
+      <DependentUpon>History.cs</DependentUpon>
     </Compile>
     <Compile Include="Invites.cs">
       <SubType>Form</SubType>
@@ -64,6 +76,12 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Messenger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Messenger.Designer.cs">
+      <DependentUpon>Messenger.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,14 +103,29 @@
     <Compile Include="SettingsSpecialization.Designer.cs">
       <DependentUpon>SettingsSpecialization.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkoutsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkoutsWindow.Designer.cs">
+      <DependentUpon>WorkoutsWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="EditWorkoutWindow.resx">
+      <DependentUpon>EditWorkoutWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FitFactoryMain.resx">
       <DependentUpon>FitFactoryMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="History.resx">
+      <DependentUpon>History.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Invites.resx">
       <DependentUpon>Invites.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Messenger.resx">
+      <DependentUpon>Messenger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -111,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsSpecialization.resx">
       <DependentUpon>SettingsSpecialization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkoutsWindow.resx">
+      <DependentUpon>WorkoutsWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
