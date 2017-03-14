@@ -41,12 +41,15 @@ public class DatePickerActivity extends AppCompatActivity {
                 List<Date> dates =  calendar.getSelectedDates();
                 try {
                     DAO dao = DAO.getInstance();
+                    StringBuilder sb = new StringBuilder();
                     for(Date date : dates) {
                         Format formatter = new SimpleDateFormat("dd/MM/yyyy");
-                        String dateStr = formatter.format(date);
 
-                        dao.addTrainigDay(dateStr);
+                        String dateStr = formatter.format(date);
+                        sb.append(dateStr+',');
+
                     }
+                    dao.addTrainigDay(sb.toString());
 
                 } catch (SQLException e) {
                     e.printStackTrace();

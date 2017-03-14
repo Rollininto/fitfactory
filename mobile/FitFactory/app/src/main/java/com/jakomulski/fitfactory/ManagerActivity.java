@@ -92,7 +92,7 @@ public class ManagerActivity extends Activity {
             e.printStackTrace();
         }
     }
-
+    List<Programme> programmes = null;
     @Override
     protected void onResume() {
         super.onResume();
@@ -109,6 +109,7 @@ public class ManagerActivity extends Activity {
                     int trainerId = trainers.get(i).getId();
                     dao.setTrainerId(trainerId);
                     setComments();
+                    serProgrammer();
                 }
 
                 @Override
@@ -117,9 +118,8 @@ public class ManagerActivity extends Activity {
                 }
             });
 
-            final List<Programme> programmes = dao.getProgrammes(3);
-            ProgrammeAdapter padapter = new ProgrammeAdapter(this, programmes);
-            programmesSpinner.setAdapter(padapter);
+
+            serProgrammer();
             programmesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -138,6 +138,19 @@ public class ManagerActivity extends Activity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private void serProgrammer() {
+        final DAO dao;
+        try {
+            dao = DAO.getInstance();
+            programmes = dao.getProgrammes(3);
+            ProgrammeAdapter padapter = new ProgrammeAdapter(this, programmes);
+            programmesSpinner.setAdapter(padapter);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void startDatePickerDialog(){

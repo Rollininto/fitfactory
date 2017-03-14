@@ -425,9 +425,10 @@ public class DBAccessObject extends DAO {
             cStmt.execute();
 
             ResultSet rs = cStmt.getResultSet();
-            rs.next();
-            Goal goal = new Goal(rs.getInt(1), rs.getString(2),rs.getString(3));
-            goals.add(goal);
+            while(rs.next()) {
+                Goal goal = new Goal(rs.getInt(1), rs.getString(2), rs.getString(3));
+                goals.add(goal);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
